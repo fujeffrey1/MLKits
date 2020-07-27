@@ -14,6 +14,7 @@ let { features, labels, testFeatures, testLabels } = loadCSV("./cars.csv", {
 const regression = new LinearRegression(features, labels, {
     learningRate: 0.1,
     iterations: 100,
+    batchSize: 10
 });
 
 regression.train();
@@ -32,4 +33,6 @@ plot({
 //     yLabel: "Mean Squared Error",
 // });
 
-console.log("r2", r2);
+console.log("Accuracy is", r2);
+
+regression.predict([[120, 2, 380]]).print();
