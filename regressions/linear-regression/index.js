@@ -19,6 +19,7 @@ const regression = new LinearRegression(features, labels, {
 
 regression.train();
 const r2 = regression.test(testFeatures, testLabels);
+console.log("Accuracy is", r2);
 
 plot({
     x: regression.mseHistory.reverse(),
@@ -32,7 +33,5 @@ plot({
 //     xLabel: "Value of B",
 //     yLabel: "Mean Squared Error",
 // });
-
-console.log("Accuracy is", r2);
 
 regression.predict([[120, 2, 380]]).print();
